@@ -62,58 +62,93 @@
     </header>
     <div class="container">
         <h1>Register with us!</h1>
-        <div class="form-horizontal">
-            <div class="form-group">
-                <label class="control-label col-sm-2">Name: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Full name">
-                </div>
+        <form class="form-horizontal">
 
-                <label>Email: </label>
-                <input type="text" class="form-control" placeholder="Email Address"><br>
-                                
-            <div class="row row-content align-item-center">
-            <label class="control-label col-sm-2">NRIC: </label>
-            <div class="form-group col-sm-4">
-                <input type="text" class="form-control" placeholder="NRIC">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Full Name:</label>
+                    <input pattern="[A-Z][A-Za-z -]+" type="text" class="form-control" id="name" placeholder="E.g Mark Lee" required>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="image-upload">Upload Your NRIC Photo</label>
-            <input type="file" class="form-control" id="image-upload">
-        </div>
-        <div class="form-group">
-            <label for="image-upload">Upload Your Photo</label>
-            <input type="file" class="form-control" id="image-upload">
-        </div>
 
-                <label>District: </label>
-                <select>
-                    <option value="North">North</option>
-                    <option value=South"">South</option>
-                    <option value="East">East</option>
-                    <option value="West">West</option>
-                    <option value="Central">Central</option>
-                </select><br>
-
-                <label>Phone:</label>
-                <input type="number" class="form-control" placeholder="Phone number"><br>
-
-                <label>How dd you find out about us?</label>
-                <select>
-                    <option value="Online">Online</option>
-                    <option value="Friends">Friends</option>
-                    <option value="Magazine">Magazine</option>
-                    <option value="Others">Others</option>
-                </select><br>
-
-
-                <label>Tell us more about you! : </label><br>
-                <textarea class="form-control" placeholder="Tell Us Why You Want To Become A Host!"></textarea>
-                <div>
-                    <button type="button" class="btn btn-danger" onclick="Cancel()">Cancel</button>
-                    <button type="submit" class="btn btn-primary" onclick="HReg()">Submit</button>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Email Address:</label>
+                    <input type="email" class="form-control" id="email" placeholder="" required>
                 </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Password:</label>
+                    <input type="text" class="form-control" id="pw" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Confirm Password:</label>
+                    <input type="text" class="form-control" id="pw" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault03">Phone Number:</label>
+                    <input type="text" class="form-control" id="validationDefault03" placeholder="E.g 123456789" required pattern="[0-9]{8}">
+                    <span>*Exclude spaces</span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">NRIC</label>
+                    <input type="text" class="form-control" id="text" placeholder="Enter NRIC no. (capitalized)" pattern="[STFG][0-9]{7}[A-Z]" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4 mb-3">
+                    <label for="image-upload">Upload NRIC photo:</label>
+                    <input type="file" class="form-control" id="image-upload">
+                </div>
+            </div>
+
+            <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                    <label for="Name">Region: </label>
+                     <select class="form-control" id="mainMenu" onchange="displayAccordingly()" required>
+                        <option value="">Choose: </option>
+                        <option value="north">North</option>
+                        <option value="south">South</option>
+                        <option value="east">East</option>
+                        <option value="west">West</option>
+                        <option value="central">Central</option>
+                    </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                            <label for="StationName">Nearest MRT Station: </label>
+                        <div id="StationName"></div>
+                    </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="description">Address: </label>
+                <div class="form-group col-sm-8">
+                        <textarea class="form-control" rows="4" id="description"></textarea>
+                </div>
+            </div> 
+  
+
+            <div>
+                <button type="button" class="btn btn-danger" onclick="Cancel()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+
+        </form>
+        </div>
+
             </div>
         </div>
     </div>
@@ -157,5 +192,6 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/tether/dist/js/tether.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="stationnames.js"></script>
 </body>
 </html>

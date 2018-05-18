@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <title>Food Culture</title>
     <script>
-    	function submit(){
-    		location.href = "index3.html";
-    	}
     </script>
     <style type="text/css">
         #div1 {
@@ -23,25 +20,28 @@
 <body>
     <nav class="navbar navbar-inverse navbar-toggleable-sm bg-inverse fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="./index3.html">Food Culture</a>
+            <a class="navbar-brand" href="./index.html">Food Culture</a>
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="./aboutus.html">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="./ContactUs.html">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="./Testimonial.html">Testimonial</a></li>
                 <li class="nav-item"><a class="nav-link" href="./HowItWorks.html">How It Works</a></li>
                 <li class="nav-item"><a class="nav-link" href="./MailingList.html">Mailing List</a></li>
-                <li class="nav-item"><a class="nav-link" href="./ViewOffer.html">View Offer</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Booking</a>
+                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="./ViewBooking.html">View Booking</a>
-                        <a class="dropdown-item" href="./Booking.html">Make Booking</a>
+                        <a class="dropdown-item" href="./Login.html">Host Login</a>
+                        <a class="dropdown-item" href="./TLogin.html">Tourist Login</a>
+                        <a class="dropdown-item" href="./ALogin.html">Admin Login</a>
                     </div>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="./EditTProfile.html">Edit Profile</a></li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Log Off</a>
-                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Register</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="./Register.html">Host Register</a>
+                        <a class="dropdown-item" href="./TRegister.html">Tourist Register</a>
+                    </div>
+                <li>
             </ul>
         </div>
     </nav>
@@ -58,41 +58,57 @@
             </div>
         </div>
     </header>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2>Update Profile</h2>
-				<hr></hr>
-				<br>
-				<div class="container">
-					<div class="form-group">
-						<label for="name">Name</label>
-						<input type="text" class="form-control" id="name">
-					</div>
-					<div class="form-group">
-						<label for="email">Email</label>
-						<input type="email" class="form-control" id="email">
-					</div>
-					<div class="form-group">
-						<label for="country">Country of Origin</label>
-						<input type="text" class="form-control" id="country">
-					</div>
-					<div class="form-group">
-						<label for="aboutMe">About Me</label>
-						<input type="text" class="form-control" id="aboutMe">
-					</div>
-					<div class="form-group">
-						<label for="image-upload">Upload a Photo</label>
-						<input type="file" class="form-control" id="image-upload">
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-primary" onclick="submit()">Submit</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-                <footer class="footer" id="div1">
+
+    <div class="container">
+        <h1>Edit Tourist Profile</h1><hr>   
+        <form class="form-horizontal">
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Full Name</label>
+                    <input pattern="[A-Z][A-Za-z -]+" type="text" class="form-control" id="name" placeholder="E.g Mark Lee" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault03">Phone Number</label>
+                    <input type="text" class="form-control" id="phonenum" placeholder="E.g 123456789" required pattern="[0-9]{12}">
+                    <span>*Exclude spaces</span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault03">Country of Residence</label>
+                    <input type="text" class="form-control" id="country" placeholder="" required">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="description">About Me: </label>
+                <div class="form-group col-sm-8">
+                        <textarea class="form-control" rows="12" id="description" placeholder="More about yourself..."></textarea>
+                </div>
+            </div> 
+
+            <div class="container">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+            <br>
+
+        </form>
+    </div>
+
+
+        <footer class="footer" id="div1">
         <div class="container">
             <div class="row">
                 <div class="col-3 col-sm-4">
@@ -124,9 +140,9 @@
             </div>            
         </div>
     </footer>
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/tether/dist/js/tether.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link type="text/css" href="editor.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Food Culture</title>
     <script>
       function cancel(){
@@ -71,11 +73,11 @@
         <h1>Booking Application Details</h1>
  <div class="form-group">
 
-  <label class="control-label col-sm-2" for="location">Preferred location:</label>
+  <label class="control-label col-sm-2" for="location">Location:</label>
                   <div class="form-group col-sm-4">
   <select class="form-control" id="location">
     <option value="">Choose...</option>
-                  <option value="north">North</option>
+            <option value="north">North</option>
             <option value="west">West</option>
             <option value="east">East</option>
             <option value="south">South</option>
@@ -88,7 +90,7 @@
     <div class="form-group"> <!-- Date input -->
         <label class="control-label col-sm-2" for="date">Date: </label>
         <div class="form-group col-sm-2">
-        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text"/>
+        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" required pattern="(([0][1-9])|([1][0-2]))/[0-9]{2}" />
       </div>
       </div> 
 
@@ -97,64 +99,64 @@
   <select class="form-control" id="start_date">
                     
     <option value="">Choose...</option>
-                  <option value="lunch">Lunch 12pm</option>
-                  <option value="tea">Afternoon Tea 3pm</option>
+            <option value="lunch">Lunch 12pm</option>
+            <option value="tea">Afternoon Tea 3pm</option>
             <option value="dinner">Dinner 6pm</option>
   </select>
 </div>
 </div> 
 
     <div class="form-group">
-                <label class="control-label col-sm-3" for="nummales">Number of Adult Males:</label>
-                <div class="form-group col-sm-4">
+                <label class="control-label col-sm-2" for="nummales">Number of Males:</label>
+                <div class="form-group col-sm-2">
                 <input type="text" class="form-control" id="nummales" placeholder="" value="" required><br>
               </div>
     </div>
 
     <div class="form-group">
-            <label class="control-label col-sm-3" for="numfemales">Number of Adult Females:</label>
-            <div class="form-group col-sm-4">
+            <label class="control-label col-sm-2" for="numfemales">Number of Females:</label>
+            <div class="form-group col-sm-2">
             <input type="text" class="form-control" id="numfemales" placeholder="" value="" required><br>
           </div>
 </div>
 
 
     <div class="form-group">
-            <label class="control-label col-sm-2" for="numchildren">Number of children (12 years and below):</label>
-            <div class="form-group col-sm-4">
+            <label class="control-label col-sm-2" for="numchildren">Number of children:</label>
+            <div class="form-group col-sm-2">
             <input type="text" class="form-control" id="numchildren" placeholder="" value""><br>
           </div>
 </div>
     
     <h1>About You</h1>
         <div class="form-group">
-              <label class="control-label col-sm-2" for="host_msg">Purpose of Visit: </label>
+              <label class="control-label col-sm-2" for="host_msg">Message to host: </label>
               <div class="form-group col-sm-8">
-              <textarea class="form-control" placeholder="E.g Are you friends or family? Tell us why are you coming to visit? What are you looking forward to most? " rows="8" id="host_msg"></textarea>
+              <textarea class="form-control" rows="8" id="host_msg"></textarea>
             </div>
-            </div>
+        </div>
 
-                
+    <div class="form-group">
+        <label class="control-label col-sm-2">Upload Image</label>
+        <div class="form-group col-sm-8">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                    <input type="file" id="imgInp">
+                </span>
+            </span>   
+        </div>
+      </div>
+        <img id='img-upload'/>
+    </div>                </form>
+
              <div class="form-group">
-                <label class="control-label col-sm-3" for="memberdetails">Information of participants:</label>
+                <label class="control-label col-sm-2" for="memberdetails">Members Coming :</label>
                         <div class="form-group col-sm-8">
                     <textarea class="form-control" rows="12" id="memberdetails" placeholder="Introduce each participant to the hosts with their name, age and profile. For Example, Name: ,Age: ,Profile: E.g Hobbies, jobs, school etc."></textarea>
                   </div>
                 </div> 
 
-                <div class="form-group">
-                    <label class="control-label col-sm-6">Image of you and participants (optional): </label>
-                    <div class="form-group col-sm-8">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <span class="btn btn-default btn-file">
-                                <input type="file" id="imgInp">
-                            </span>
-                        </span>   
-                    </div>
-                  </div>
-                    <img id='img-upload'/>
-                </div>  
             <div class="form-group">
                 <label class="control-label col-sm-2" for="hosttype">Preferred host type <br> (If any):</label>
                 <div class="form-group col-sm-8">
@@ -210,5 +212,9 @@
           <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/tether/dist/js/tether.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="editor.js"></script>
+    <script>
+        var editor= $("#host_msg").Editor()
+    </script>
 	</body>
 </html>

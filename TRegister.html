@@ -61,43 +61,75 @@
         </div>
     </header>
     <div class="container">
-        <h1>Become a Member</h1>
+        <h1>Register as a Tourist</h1>
         <form class="form-horizontal">
-            <div class="form-group">
-                <label class="control-label col-sm-2">Full Name: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Full name">
-                </div>
 
-                <label>Email: </label>
-                <input type="text" class="form-control" placeholder="Email Address">
-
-                <label>Password: </label>
-                <input type="Password" class="form-control" placeholder="Password">
-
-                <label>Confirm Password: </label>
-                <input type="Password" class="form-control" placeholder="Confirm Password"><br>
-
-                <label>Country: </label>
-                <select>
-                    <option value="USA">USA</option>
-                    <option value="United Kingdom">United Kingdom</option>
-                    <option value="Switzerland">Switzerland</option>
-                    <option value="China">China</option>
-                    <option value="Indonesia">Indonesia</option>
-                    <option value="Malaysia">Malaysia</option>
-                    <option value="Germany">Germany</option>
-                </select>
-                <br />
-
-                <label>Phone Number: </label>
-                <input type="number" class="form-group" placeholder="Phone Number">
-                <div>
-                    <button type="button" class="btn btn-danger" onclick="Cancel()">Cancel</button>
-                    <button type="Submit" class="btn btn-primary" onclick="Submit()">Submit</button>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Full Name</label>
+                    <input pattern="[A-Z][A-Za-z -]+" type="text" class="form-control" id="name" placeholder="E.g Mark Lee" required>
                 </div>
             </div>
-        </form>
+
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault03">Phone Number</label>
+                    <input type="text" class="form-control" id="validationDefault03" placeholder="E.g 123456789" required pattern="[0-9]{8}">
+                    <span>*Exclude spaces</span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Password:</label>
+                    <input type="text" class="form-control" id="pw" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">Confirm Password:</label>
+                    <input type="text" class="form-control" id="pw" placeholder="" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="Name">Country: </label>
+                    <select class="form-control" id="country" required>
+                        <option value="USA">USA</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="China">China</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Germany">Germany</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault03">Phone Number:</label>
+                    <input type="text" class="form-control" id="validationDefault03" placeholder="E.g 123456789" required pattern="[0-9]{12}">
+                    <span>*Exclude spaces</span>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-danger" onclick="Cancel()">Cancel</button>
+                <button type="Submit" class="btn btn-primary">Register</button>
+            </div>
+           
+    </form>
     </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
