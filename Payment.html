@@ -65,33 +65,52 @@
             </div>
         </div>
     </header>
-    <h1>Payment</h1><hr>
-    <div class="container">
-        <h2> WE ACCEPT VISA & MASTERCARD </h2>
-        <img id="myImg" src="imgs/payment.jpg">
-        <form>
-            <div class="form-group">
-                <label for="formGroupExampleInput">Name on card</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="xxxxxx">
-            </div>
-            <div class="form-group">
-                <label for="formGroupExampleInput2">Card number</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="123456789">
-            </div>
-            <div class="form-group">
-                <label for="formGroupExampleInput3">Expiry date</label>
-                <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="MM/YY">
-            </div>
-            <div class="form-group">
-                <label for="formGroupExampleInput4">Security code</label>
-                <input type="text" class="form-control" id="formGroupExampleInput3">
-            </div>
-        </form>
-        <p>
-            <button type="button" class="btn btn-warning" onclick="myButton1()">Back</button>
-            <button type="submit" class="btn btn-primary" onclick="payment()">Check Out</button>
-        </p>
+
+<div class="container">
+        <h1>Payment</h1><hr>
+    <h2> WE ACCEPT VISA & MASTERCARD </h2>
+    <img id="myImg" src="imgs/payment.jpg">
+    
+<form action="./EReceipt.html" class="form-horizontal">
+    <div class="form-row">
+            <div class="col-md-4 mb-3">
+                    <label for="validationDefault03">Full name on the card</label>
+                    <input pattern="[A-Z -]+" type="text" class="form-control" id="validationDefault03" placeholder="E.g Mark Lee" required>
+                    <span>*Type it in Full Capital Letters</span>
+                </div>
+        </div>
+            <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationDefault03">Card Number</label>
+                        <input type="text" class="form-control" id="validationDefault03" placeholder="E.g 123456789" required pattern="((5[1-5])[0-9]{14}|4[0-9]{15})">
+                        <span>*Exclude spaces</span>
+                    </div>
+                </div>
+                    <div class="form-row">
+                        <div class="col-md-2 mb-3">
+                            <label for="validationDefault03">Expiry Date</label>
+                            <input type="text" class="form-control" id="validationDefault03" placeholder="MM/YY" required pattern="(([0][1-9])|([1][0-2]))/[0-9]{2}">
+                        </div>
+                        </div>
+                    <div class="form-row">
+                        <div class="col-md-2 mb-3">
+                            <label for="validationDefault03">CVV</label>
+                            <input pattern="[0-9]{3}" type="text" class="form-control" id="validationDefault03"  required>
+                        </div>
+                        <span class="info">* CVV is the card security code, unique three digits number on the back of your card separate from its number.</span>
+                        </div>
+    <div class="form-row">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+        <label class="form-check-label" for="invalidCheck2">
+          Agree to terms and conditions
+        </label>
+      </div>
+        </div>
+<button type="button" class="btn btn-warning" onclick="myButton1()">Back</button>
+<button type="submit" class="btn btn-primary">Check Out</button>
     </div>
+    </form>
         <footer class="footer" id="div1">
         <div class="container">
             <div class="row">

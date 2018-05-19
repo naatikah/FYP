@@ -10,6 +10,30 @@
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     </head>
     <script>
+        function ValidateFileUpload() {
+            var fuData = document.getElementById('fileChooser');
+            var FileUploadPath = fuData.value;
+            if (FileUploadPath == '') {
+            alert("Please upload an image");
+        } 
+        else {
+            var Extension = FileUploadPath.substring(
+                FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+            if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+                    || Extension == "jpeg" || Extension == "jpg") {
+
+                if (fuData.files && fuData.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#blah').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(fuData.files[0]);
+                }} 
+                else {
+                alert("Photo only allows file types of GIF, PNG, JPG, JPEG and BMP. ");
+            }}}
     function back(){
             location.href = "manageuser.html";
         }
@@ -47,19 +71,20 @@
                         </ul>
                     </div>
                 </nav><br><br><br>
+                <form>
                     <div class="container">
                         <h1>Edit User details</h1>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="name">Name: </label>
                             <div class="form-group col-sm-6">
-                                <input class="form-control" id="name" name="name" placeholder="" type="text" />
+                                <input class="form-control" pattern="[A-Za-z -]+{80}" id="name" name="name" placeholder="" type="text" required/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="time">User's Role: </label>
                             <div class="form-group col-sm-4">
-                                <select class="form-control" id="role">
+                                <select class="form-control" id="role" required>
                                     <option value="admin">Admin</option>
                                     <option value="host">Host</option>
                                     <option value="tourist">Tourist</option>
@@ -69,7 +94,7 @@
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="time">User's Status: </label>
-                            <div class="form-group col-sm-4">
+                            <div class="form-group col-sm-4" required>
                                 <select class="form-control" id="start_date">
                                     <option value="active">Active</option>
                                     <option value="inactive">Inactive</option>
@@ -80,20 +105,20 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="email">Email: </label>
                             <div class="form-group col-sm-6">
-                                <input class="form-control" id="email" name="email" placeholder="" type="text" />
+                                <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control" id="email" name="email" placeholder="" type="text" required/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="password">Password: </label>
                             <div class="form-group col-sm-4">
-                                <input class="form-control" id="password" name="password" placeholder="" type="text" />
+                                <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" id="password" name="password" placeholder="" type="text" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="Phone">Phone Number: </label>
                             <div class="form-group col-sm-4">
-                                <input class="form-control" id="Phone" name="Phone" placeholder="" type="text" />
+                                <input class="form-control" id="Phone" name="Phone" placeholder="" type="text" required/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -101,28 +126,20 @@
                                 <!-- Date input -->
                                 <label class="control-label col-sm-2" for="address">Address: </label>
                                 <div class="form-group col-sm-6">
-                                    <input class="form-control" id="address" name="address" placeholder="" type="text" />
+                                    <input class="form-control" id="address" name="address" placeholder="" type="text" required/>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-sm-2">Upload User Image: </label>
-                                <div class="form-group col-sm-8">
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <span class="btn btn-default btn-file">
-                                                <input type="file" id="imgInp">
-                                            </span>
-                                        </span>
-                                    </div>
+                                    <label for="image-upload">Upload User Image</label>
+                                    <input type="file" name="dataFile" id="fileChooser" onchange="return ValidateFileUpload()" /><br>
+                                    <img src="" id="blah" width= 350px >
                                 </div>
-                                <img id='img-upload' />
-                            </div>
 
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="description">Description: </label>
                                 <div class="form-group col-sm-8">
-                                    <textarea class="form-control" rows="12" id="description" placeholder=""></textarea>
+                                    <textarea class="form-control"  pattern="[A-Za-z0-9 -]+{3000}" rows="12" id="description" placeholder=""></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -133,6 +150,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 <footer class="footer" id="div1">
                         <div class="container">
                             <div class="row">
