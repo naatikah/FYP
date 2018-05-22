@@ -148,19 +148,40 @@
                                 <img src="" id="blah" width= 350px >
                             </div>
                             
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="HostType">Preferred host type <br> (If any):</label>
-                        <div class="form-group col-sm-8">
-                        <input type="text" class="form-control" id="HostType" placeholder="Ex: Couple, family with children, friends, solo host, anyone welcome, etc." value="">
-                      </div>
-            </div>
-        
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="HostType">Preferred host type <br> (If any): </label>
+                <div class="form-group col-sm-4">
+                    <select class="form-control" id="HostType">
+                        
+        <option value="">Choose...</option>
+                      <option value="h1">Couple</option>
+                      <option value="h2">Family with children</option>
+                <option value="h3">Solo Host</option>
+                <option value="h4">Others</option>
+      </select>
+</div>
             <div class="form-group">
                         <label class="control-label col-sm-2" for="Diet">Dietary Restrictions<br> (If any): </label>
                         <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="Diet" placeholder="Vegeterian, Gluten-free etc." value="">
+                            <select class="form-control" id="Diet">
+                                
+                <option value="">Choose...</option>
+                              <option value="d1">Vegeterian (Will eat animal products, but not meat, poultry or fish)</option>
+                              <option value="d2">Lactose Intolerant (Dairy free)</option>
+                        <option value="d3">Lacto-Vegeterian (Will not eat eggs, meat, poultry and fish)</option>
+                        <option value="d4">Vegan (No consumption of animal products)</option>
+                        <option value="d5">Diabetic diet</option>
+                        <option value="d6">Gluten free</option>
+              </select>
         </div>
-        
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="otherinfo">Any other useful information?</label><br>
+            <div class="form-group col-sm-8"> 
+            <textarea class="form-control" pattern="[A-Za-z0-9 -]+{3000}" rows="8" id="otherinfo"></textarea>
+            <span>*Maximum 3000 Characters</span>  
+          </div>
+          </div>
+
               <div class="form-group">        
               <div class="col-sm-offset-2 col-sm-10">
                 <button class="btn btn-default" type="submit" onclick="cancel()">Cancel</button>

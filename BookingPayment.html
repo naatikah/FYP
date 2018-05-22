@@ -13,8 +13,6 @@
             function myButton1() {
                 location.href = "ViewOffer.html";
             }
-        </script>
-    <script>
             // Example starter JavaScript for disabling form submissions if there are invalid fields
             (function() {
               'use strict';
@@ -34,10 +32,40 @@
               }, false);
             })();
             </script>
+            
       <style type="text/css">
         #div1 {
             background-color: #B3B3B3;
         }
+    </style>
+    <style>
+        /* Tooltip container */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+        }
+        
+        /* Tooltip text */
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+         
+            /* Position the tooltip text - see examples below! */
+            position: absolute;
+             z-index: 1;
+        }
+        
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+        </style>
     </style>
     </head>
     <body>
@@ -78,8 +106,8 @@
                             </div>
                         </div>
                     </header>
-                <h1>Payment</h1><hr>
                 <div class="container">
+                        <h1>Payment</h1><hr>
                     <h2> WE ACCEPT VISA & MASTERCARD </h2>
                     <img id="myImg" src="imgs/payment.jpg">
                     
@@ -87,12 +115,14 @@
                     <div class="form-row">
                             <div class="col-md-4 mb-3">
                                     <label for="validationDefault03">Full name on the card</label>
-                                    <input pattern="[A-Z][A-Za-z]+"type="text" class="form-control" id="validationDefault03" placeholder="E.g Mark Lee" required>
-                                  </div>
+                                    <input pattern="[A-Z -]+" type="text" class="form-control" id="validationDefault03" placeholder="E.g Mark Lee" required>
+                                    <span>*Type it in Full Capital Letters</span>
+                                </div>
                         </div>
                             <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault03">Card Number</label>
+                                        
                                         <input type="text" class="form-control" id="validationDefault03" placeholder="E.g 123456789" required pattern="((5[1-5])[0-9]{14}|4[0-9]{15})">
                                         <span>*Exclude spaces</span>
                                     </div>
@@ -107,8 +137,8 @@
                                         <div class="col-md-2 mb-3">
                                             <label for="validationDefault03">CVV</label>
                                             <input pattern="[0-9]{3}" type="text" class="form-control" id="validationDefault03"  required>
-                                            <span class="info">* CVV is the card security code, unique three digits number on the back of your card separate from its number.</span>
                                         </div>
+                                        <span class="info">* CVV is the card security code, unique three digits number on the back of your card separate from its number.</span>
                                         </div>
                     <div class="form-row">
                       <div class="form-check">
