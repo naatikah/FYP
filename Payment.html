@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <!-- Required meta tags always come first -->
@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     <title>Food Culture</title>
     <script>
         function myButton1() {
@@ -22,6 +23,7 @@
         #div1 {
             background-color: #B3B3B3;
         }
+    
     </style>
 </head>
 <body>
@@ -68,49 +70,36 @@
 
 <div class="container">
         <h1>Payment</h1><hr>
-    <h2> WE ACCEPT VISA & MASTERCARD </h2>
-    <img id="myImg" src="imgs/payment.jpg">
+    <h2>WE ACCEPT PAYPAL</h2>
+    <img id="myImg" src="imgs/paypal-logo.png">
     
-<form action="./EReceipt.html" class="form-horizontal">
-    <div class="form-row">
-            <div class="col-md-4 mb-3">
-                    <label for="validationDefault03">Full name on the card</label>
-                    <input pattern="[A-Z -]+" type="text" class="form-control" id="validationDefault03" placeholder="E.g Mark Lee" required>
-                    <span>*Type it in Full Capital Letters</span>
-                </div>
-        </div>
+
+        <form action="./EReceipt.html" method="get" id="payment-form">
             <div class="form-row">
                     <div class="col-md-4 mb-3">
-                        <label for="validationDefault03">Card Number</label>
-                        <input type="text" class="form-control" id="validationDefault03" placeholder="E.g 123456789" required pattern="((5[1-5])[0-9]{14}|4[0-9]{15})">
-                        <span>*Exclude spaces</span>
+                        <label for="validationDefault03">Name: </label>
+                        <input type="text" class="form-control" id="validationDefault03" placeholder="MARK LEE" readonly>
                     </div>
                 </div>
+                <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label for="validationDefault03">Email: </label>
+                            <input type="text" class="form-control" id="validationDefault03" placeholder="mark@gmail.com" readonly>
+                        </div>
+                    </div>
                     <div class="form-row">
-                        <div class="col-md-2 mb-3">
-                            <label for="validationDefault03">Expiry Date</label>
-                            <input type="text" class="form-control" id="validationDefault03" placeholder="MM/YY" required pattern="(([0][1-9])|([1][0-2]))/[0-9]{2}">
-                        </div>
-                        </div>
-                    <div class="form-row">
-                        <div class="col-md-2 mb-3">
-                            <label for="validationDefault03">CVV</label>
-                            <input pattern="[0-9]{3}" type="text" class="form-control" id="validationDefault03"  required>
-                        </div>
-                        <span class="info">* CVV is the card security code, unique three digits number on the back of your card separate from its number.</span>
-                        </div>
-    <div class="form-row">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-        <label class="form-check-label" for="invalidCheck2">
-          Agree to terms and conditions
-        </label>
-      </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationDefault03">Phone number: </label>
+                                <input type="text" class="form-control" id="validationDefault03" placeholder="92912123" readonly>
+                            </div>
+         <p>
+            <button type="button" class="btn btn-warning" onclick="myButton1()">Back</button>
+            <div id="paypal-button-container"></div>
+         </p>
+
+            </div>
+</form>
         </div>
-<button type="button" class="btn btn-warning" onclick="myButton1()">Back</button>
-<button type="submit" class="btn btn-primary">Check Out</button>
-    </div>
-    </form>
         <footer class="footer" id="div1">
         <div class="container">
             <div class="row">
@@ -146,6 +135,6 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/tether/dist/js/tether.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <script src="payment.js"></script>
 </body>
 </html>
