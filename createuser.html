@@ -8,16 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+            <link href="Main.css" rel="stylesheet"/>
+        <script src="jquery-1.10.2.min.js"></script>
+        <script src="JQUERY%20Main.js"></script>
     <title>Food Culture</title>
     <script>
         function back() {
             location.href = "ManageUser.html";
         }
-
-        function submit() {
-            location.href = "ManageUser.html";
-        }
-    </script>
+ </script>
     <style type="text/css">
         #div1 {
             background-color: #B3B3B3;
@@ -48,128 +47,66 @@
                         </ul>
                     </div>
                 </nav><br><br><br>
-            <div class="container">
-                <h1>Create New User</h1>
-         <div class="form-group">
-                <label class="control-label col-sm-2" for="name">Name: </label>    
-                <div class="form-group col-sm-6">
-                        <input class="form-control" id="name" name="name" placeholder="User's Name" type="text"/>
-                      </div>
-        </div>
-
+                <div id="box">
+            <div id="main"></div>
+            <form action="./ManageUser.html">
+            <div id="loginform">
+                <h1>Create Host</h1>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="time">User's Role: </label>
-                    <div class="form-group col-sm-4">
-                        <select class="form-control" id="role">
-                            <option value="">Choose...</option>
+                    <label class="control-label col-sm-6" for="time">User's Role: </label>
+                        <select class="form-control col-sm-8" id="role" required=required" >
+                            <option value="">SELECT</option>
                             <option value="admin">Admin</option>
                             <option value="host">Host</option>
-                            <option value="tourist">Tourist</option>
                         </select>
-                    </div>
-                </div> 
-
+                </div>
+                <input type="text" name="name" placeholder="Full Name" required="required"><br>
+                <input type="email" placeholder="Email" required="required" /><br>
+                <input type="number" name="phone" placeholder="Phone Number" required="required">
+                <input type="password" name="password" placeholder="Password" required="required" /><br>
+                <input type="text" name="NRIC" placeholder="NRIC" required="required">
+                <input type="text" name="address" placeholder="Address" required="required">
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="time">User's Status: </label>
-                    <div class="form-group col-sm-4">
-                        <select class="form-control" id="start_date">
-                            <option value="">Choose...</option>
+                    <label class="control-label col-sm-2" for="status">Status: </label>
+                        <select class="form-control col-sm-8" id="status" required=required" >
+                            <option value="">SELECT</option>
                             <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
+                            <option value="deactive">Deactivate</option>
                         </select>
-                    </div>
-                </div> 
-
-        <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Email: </label>    
-                <div class="form-group col-sm-6">
-                        <input class="form-control" id="email" name="email" placeholder="Example@zmail.com" type="text"/>
-                      </div>
-        </div>
-        
-        <div class="form-group">
-                <label class="control-label col-sm-2" for="password">Password: </label>    
-                <div class="form-group col-sm-4">
-                        <input class="form-control" id="password" name="password" placeholder="" type="text"/>
-                      </div>
-        </div>
-        <div class="form-group">
-                <label class="control-label col-sm-2" for="Phone">Phone Number: </label>    
-                <div class="form-group col-sm-4">
-                        <input class="form-control" id="Phone" name="Phone" placeholder="E.g 90043812" type="text"/>
-                      </div>
-        </div>
-        <div class="form-group">
-                <div class="form-group">
-                    <!-- Date input -->
-                    <label class="control-label col-sm-2" for="address">Address: </label>
-                    <div class="form-group col-sm-6">
-                        <input class="form-control" id="address" name="address" placeholder="E.g 24 Oxen Road" type="text" />
-                    </div>
                 </div>
-
-                <div class="form-group">
-                        <label class="control-label col-sm-2">Upload User Image: </label>
-                        <div class="form-group col-sm-8">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <span class="btn btn-default btn-file">
-                                    <input type="file" id="imgInp">
-                                </span>
-                            </span>   
-                        </div>
-                      </div>
-                        <img id='img-upload'/>
-                    </div> 
-
-                    <div class="form-group">
-                            <label class="control-label col-sm-2" for="description">Description: </label>
-                                    <div class="form-group col-sm-8">
-                                <textarea class="form-control" rows="12" id="description" placeholder="Describe about user..."></textarea>
-                              </div>
-                            </div> 
-                            <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button class="btn btn-default" type="submit" onclick="back()">Back</button>
-                                            <button class="btn btn-success" type="submit" onclick="submit()">Create</button>
-                                    </div>
-                            </div>
-                    </div>
+                <button type="submit" onclick="create">Create</button>
+            </div>
+        </form>
+            <form action="./ManageUser.html">
+                <div id="signupform">
+                <h1>Create Tourist</h1>
+                <label class="control-label col-sm-6" for="role" id="tourist">Role: Tourist</label>
+                <input type="text" placeholder="Full Name" required="required"><br>
+                <input type="email" placeholder="Email" required="required" /><br>
+                <input type="password" placeholder="Password" required="required" /><br>
+                <input type="number" name="phone" placeholder="Phone" required="required"><br>
+                 <div class="form-group">
+                    <label class="control-label col-sm-2" for="status">Status: </label>
+                        <select class="form-control col-sm-8" id="status" required=required" >
+                            <option value="">SELECT</option>
+                            <option value="active">Active</option>
+                            <option value="deactive">Deactivate</option>
+                        </select>
                 </div>
+                <button type="submit" onclick="create">Create</button>
+            </div>
+            </form>
+            
+            
+            <div id="login_msg">Create Admin/Host Account</div>
+            <div id="signup_msg">Create Tourist Account</div>
+            
+            <button id="login_btn">Create</button>
+            <button id="signup_btn">Create</button>
+            
+            
+        </div>
 
-
-                                    <footer class="footer" id="div1">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-3 col-sm-4">
-                                                        <h5>Links</h5>
-                                                        <li><a href="./Index.html">Home</a></li>
-                                                        <li><a href="./AboutUs.html">About Us</a></li>
-                                                        <li><a href="./ContactUs.html">Contact Us</a></li>
-                                                        <li><a href="./TNC.html">Terms & Condition</a></li>
-                                                        <li><a href="./PrivacyPolicies.html">Privacy Policies</a></li>
-                                                        <li><a href="./FAQ.html">FAQ</a></li>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <h5>Our Address</h5>
-                                                        <address>
-                                                            131, Smith Avenue Road<br>
-                                                            #04-452,<br>
-                                                            Singapore 650131<br>
-                                                            Sinagpore<br>
-                                                            Phone: +6518273645<br>
-                                                            Fax: +65172637262<br>
-                                                            Email: foodculture@outlook.com
-                                                        </address>
-                                                    </div>
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-auto">
-                                                            <p>© Copyright 2018 Food Culture</p>
-                                                        </div>
-                                                    </div>
-                                                </div>            
-                                            </div>
-                                        </footer>
                                         <!-- jQuery first, then Tether, then Bootstrap JS. -->
                                         <script src="node_modules/jquery/dist/jquery.min.js"></script>
                                         <script src="node_modules/tether/dist/js/tether.min.js"></script>
