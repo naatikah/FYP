@@ -1,13 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
+    <head>
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link type="text/css" href="editor.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,10 +22,14 @@
             background-color: #B3B3B3;
         }
     </style>
-    
+        <script>
+        $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
+        </script>
     </head>
     
-	<body>
+<body>
     <nav class="navbar navbar-inverse navbar-toggleable-sm bg-inverse fixed-top">
         <div class="container">
             <a class="navbar-brand" href="./index3.html">Food Culture</a>
@@ -46,189 +55,228 @@
         </div>
     </nav>
     <header class="jumbotron">
-            <div class="container">
-                <div class="row row-header">
-                    <div class="col-12 col-sm-8">
-                        <h1>Food Culture </h1>
-                        <p>Looking for non-touristy things to do in Singapore? Signing up for a Food Culture is a great way to experience the real Singapore. Learn about Singapore food and way of life by visiting homes from all around the country.</p>
-                    </div>
-                    <div class="col col-sm">
-                        <img class="d-flex ml-3 img-thumbnail alight-self-center" src="imgs/sg-life.jpg" alt="sglife">
-                    </div>
+        <div class="container">
+            <div class="row row-header">
+                <div class="col-12 col-sm-8">
+                    <h1>Food Culture </h1>
+                    <p>Looking for non-touristy things to do in Singapore? Signing up for a Food Culture is a great way to experience the real Singapore. Learn about Singapore food and way of life by visiting homes from all around the country.</p>
+                </div>
+                <div class="col col-sm">
+                    <img class="d-flex ml-3 img-thumbnail alight-self-center" src="imgs/sg-life.jpg" alt="sglife">
                 </div>
             </div>
-        </header>
-        
+        </div>
+    </header>
+
     <form action="./confirmbooking.html" id="bookform" method="post">
-            <div class="form-horizontal">
             <div class="container">
                 <h1>Booking Application Details</h1>
 
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                            <label for="Name">Preferred Region: </label>
-                     <select class="form-control" id="mainMenu" onchange="displayAccordingly()" required>
-                        <option value="">Choose: </option>
-                        <option value="north">North</option>
-                        <option value="south">South</option>
-                        <option value="east">East</option>
-                        <option value="west">West</option>
-                        <option value="central">Central</option>
-                    </select>
+                        <label for="Name">Preferred Region: </label>
+                        <select class="form-control" id="mainMenu" onchange="displayAccordingly()" required>
+                            <option value="">Choose: </option>
+                            <option value="north">North</option>
+                            <option value="south">South</option>
+                            <option value="east">East</option>
+                            <option value="west">West</option>
+                            <option value="central">Central</option>
+                        </select>
                     </div>
                     <div class="col-md-4 mb-3">
-                            <label for="StationName">Preferred MRT Station: </label>
+                        <label for="StationName">Preferred MRT Station: </label>
                         <div id="StationName"></div>
                     </div>
-            </div>
+                </div>
+        
 
-        
-            <div class="form-group"> <!-- Date input -->
-                <label class="control-label col-sm-2" for="BStartDate">Date: </label>
-                <div class="form-group col-sm-2">
-                <input class="form-control" id="datepicker" name="BStartDate" placeholder="DD/MM/YYYY" type="text" required>
-              </div>
-        
-        
-         <label class="control-label col-sm-2" for="TimeSlot">Timeslot: </label>
-         <div class="form-group col-sm-4">
-          <select class="form-control" id="TimeSlot" required>
-                            
-            <option value="">Choose...</option>
-                          <option value="lunch">Lunch 12pm</option>
-                          <option value="tea">Afternoon Tea 3pm</option>
-                    <option value="dinner">Dinner 6pm</option>
-          </select>
-        </div>
-        </div> 
-        
-            <div class="form-group">
-                        <label class="control-label col-sm-3" for="NoMale">Number of Adult Males:</label>
-                        <div class="form-group col-sm-2">
-                        <input type="text" pattern="[0-9]"class="form-control" id="NoMale" required><br>
-                      </div>
-            </div>
-        
-            <div class="form-group">
+                <div class="form-group">
+                    <!-- Date input -->
+                    <label class="control-label col-sm-2" for="BStartDate">Date: </label>
+                    <div class="form-group col-sm-2">
+                        <input class="form-control" id="datepicker" name="BStartDate" placeholder="DD/MM/YYYY" type="text" required>
+                    </div>
+
+
+                    <label class="control-label col-sm-2" for="TimeSlot">Timeslot: </label>
+                    <div class="form-group col-sm-4">
+                        <select class="form-control" id="TimeSlot" required>
+
+                            <option value="">Choose...</option>
+                            <option value="lunch">Lunch 12pm</option>
+                            <option value="tea">Afternoon Tea 3pm</option>
+                            <option value="dinner">Dinner 6pm</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="NoMale">Number of Adult Males:</label>
+                    <div class="form-group col-sm-2">
+                        <input type="text" pattern="[0-9]" class="form-control" id="NoMale" required><br>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label class="control-label col-sm-3" for="NoFemale">Number of Adult Females:</label>
                     <div class="form-group col-sm-2">
-                    <input type="text"  pattern="[0-9]" class="form-control" id="NoFemale" placeholder="" value="" required><br>
-                    
-                  </div>
-        </div>
-        
-            <div class="form-group">
+                        <input type="text" pattern="[0-9]" class="form-control" id="NoFemale" placeholder="" value="" required><br>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label class="control-label col-sm-2" for="NoChild">Number of children (12 years and below):</label>
                     <div class="form-group col-sm-2">
-                    <input type="text"  pattern="[0-9]" class="form-control" id="NoChild" placeholder="" value""><br>
-                  </div>
-        </div>
-            
-            <h1>About You</h1>
+                        <input type="text" pattern="[0-9]" class="form-control" id="NoChild" placeholder="" value""><br>
+                    </div>
+                </div>
+
+                <h1>About You</h1>
                 <div class="form-group">
-                      <label class="control-label col-sm-2" for="VisitPurpose">Purpose of Visit: </label><br>
-                      <div class="form-group col-sm-8">
-                      <textarea class="form-control" pattern="[A-Za-z0-9 -]+{3000}" placeholder="E.g Are you friends or family? Tell us why are you coming to visit? What are you looking forward to most? " rows="8" id="VisitPurpose" required></textarea>
-                      <span>*Maximum 3000 Characters</span>  
+                    <label class="control-label col-sm-2" for="VisitPurpose">Purpose of Visit: </label><br>
+                    <div class="form-group col-sm-8">
+                        <textarea class="form-control" pattern="[A-Za-z0-9 -]+{3000}" placeholder="E.g Are you friends or family? Tell us why are you coming to visit? What are you looking forward to most? " rows="8" id="VisitPurpose" required></textarea>
+                        <span>*Maximum 3000 Characters</span>
                     </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="ParticantInfo">Information of participants:</label><br>
+                    <div class="form-group col-sm-8">
+                        <textarea class="form-control" pattern="[A-Za-z0-9 -]+{3000}" rows="12" placeholder="Introduce each participant to the hosts with their name, age and profile. For Example, Name: ,Age: ,Profile: E.g Hobbies, jobs, school etc." id="ParticantInfo" required></textarea>
+                        <span>*Maximum 3000 Characters</span>
                     </div>
-        
-                        
-                     <div class="form-group">
-                        <label class="control-label col-sm-3" for="ParticantInfo">Information of participants:</label><br>
-                                <div class="form-group col-sm-8">
-                            <textarea class="form-control" pattern="[A-Za-z0-9 -]+{3000}" rows="12" placeholder="Introduce each participant to the hosts with their name, age and profile. For Example, Name: ,Age: ,Profile: E.g Hobbies, jobs, school etc." id="ParticantInfo" required></textarea>
-                            <span>*Maximum 3000 Characters</span>  
-                        </div>
-                        </div> 
-        
-                        <div class="form-group">
-                                <label for="image-upload">Upload a Photo of yourselves (Optional) </label>
-                                <input type="file" name="dataFile" id="fileChooser" onchange="return ValidateFileUpload()" multiple/><br>
-                                <img src="" id="blah" width= 350px >
-                            </div>
-                            
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="HostType">Preferred host type <br> (If any): </label>
-                <div class="form-group col-sm-4">
-                    <select class="form-control" id="HostType">
-                        
-        <option value="">Choose...</option>
-                      <option value="h1">Couple</option>
-                      <option value="h2">Family with children</option>
-                <option value="h3">Solo Host</option>
-                <option value="h4">Others</option>
-      </select>
-</div>
-            <div class="form-group">
+                </div>
+
+                <div class="form-group">
+                    <label for="image-upload">Upload a Photo of yourselves (Optional) </label>
+                    <input type="file" name="dataFile" id="fileChooser" onchange="return ValidateFileUpload()" multiple /><br>
+                    <img src="" id="blah" width=350px>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="HostType">Preferred host type <br> (If any): </label>
+                    <div class="form-group col-sm-4">
+                        <select class="form-control" id="HostType">
+
+                            <option value="">Choose...</option>
+                            <option value="h1">Couple</option>
+                            <option value="h2">Family with children</option>
+                            <option value="h3">Solo Host</option>
+                            <option value="h4">Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label col-sm-2" for="Diet">Dietary Restrictions<br> (If any): </label>
                         <div class="form-group col-sm-6">
                             <select class="form-control" id="Diet">
-                                
-                <option value="">Choose...</option>
-                              <option value="d1">Vegeterian (Will eat animal products, but not meat, poultry or fish)</option>
-                              <option value="d2">Lactose Intolerant (Dairy free)</option>
-                        <option value="d3">Lacto-Vegeterian (Will not eat eggs, meat, poultry and fish)</option>
-                        <option value="d4">Vegan (No consumption of animal products)</option>
-                        <option value="d5">Diabetic diet</option>
-                        <option value="d6">Gluten free</option>
-              </select>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="otherinfo">Any other useful information?</label><br>
-            <div class="form-group col-sm-8"> 
-            <textarea class="form-control" pattern="[A-Za-z0-9 -]+{3000}" rows="8" id="otherinfo"></textarea>
-            <span>*Maximum 3000 Characters</span>  
-          </div>
-          </div>
 
-              <div class="form-group">        
-              <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-default" type="submit" onclick="cancel()">Cancel</button>
-                <button class="btn btn-success" type="submit" onclick="Continue()">Continue</button>
-        </div>
-        </div>
-        
-        
-        </div>
-        </div>
-            </form>
-        <footer class="footer" id="div1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-3 col-sm-4">
-                            <h5>Links</h5>
-                            <li><a href="./Index.html">Home</a></li>
-                            <li><a href="./AboutUs.html">About Us</a></li>
-                            <li><a href="./ContactUs.html">Contact Us</a></li>
-                            <li><a href="./TNC.html">Terms & Condition</a></li>
-                            <li><a href="./PrivacyPolicies.html">Privacy Policies</a></li>
-                            <li><a href="./FAQ.html">FAQ</a></li>
+                                <option value="">Choose...</option>
+                                <option value="d1">Vegeterian (Will eat animal products, but not meat, poultry or fish)</option>
+                                <option value="d2">Lactose Intolerant (Dairy free)</option>
+                                <option value="d3">Lacto-Vegeterian (Will not eat eggs, meat, poultry and fish)</option>
+                                <option value="d4">Vegan (No consumption of animal products)</option>
+                                <option value="d5">Diabetic diet</option>
+                                <option value="d6">Gluten free</option>
+                            </select>
                         </div>
-                        <div class="col-6">
-                            <h5>Our Address</h5>
-                            <address>
-                                131, Smith Avenue Road<br>
-                                #04-452,<br>
-                                Singapore 650131<br>
-                                Sinagpore<br>
-                                Phone: +6518273645<br>
-                                Fax: +65172637262<br>
-                                Email: foodculture@outlook.com
-                            </address>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-auto">
-                                <p>© Copyright 2018 Food Culture</p>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" for="otherinfo">Any other useful information?</label><br>
+                            <div class="form-group col-sm-8">
+                                <textarea class="form-control" pattern="[A-Za-z0-9 -]+{3000}" rows="8" id="otherinfo"></textarea>
+                                <span>*Maximum 3000 Characters</span>
                             </div>
                         </div>
-                    </div>            
+                        <div class="container">
+                                <div class="panel panel-primary">
+                                  <div class="panel-heading">Schedule an Appointment</div>
+                                    <div class="panel-body">
+                                       <div class="row">
+                                          <div class="col-md-6">
+                                             <div class="form-group">
+                                                <label class="control-label">First Name</label>
+                                                <input type="text" class="form-control" name="fname" id="fname">
+                                             </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                             <div class="form-group">
+                                                <label class="control-label">Last Name</label>
+                                                <input type="text" class="form-control" name="lname" id="lname">
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="row">
+                                          <div class="col-md-6">
+                                             <div class="form-group">
+                                                <label class="control-label">Email</label>
+                                                <input type="text" class="form-control" name="email" id="email">
+                                             </div>
+                                          </div>
+                                          <div class='col-md-6'>
+                                             <div class="form-group">
+                                                <label class="control-label">Appointment Time</label>
+                                                <div class='input-group date' id='datetimepicker1'>
+                                                   <input type='text' class="form-control" />
+                                                   <span class="input-group-addon">
+                                                   <span class="glyphicon glyphicon-calendar"></span>
+                                                   </span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                 </div>
+                              </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-default" type="submit" onclick="cancel()">Cancel</button>
+                                <button class="btn btn-success" type="submit" onclick="Continue()">Continue</button>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
                 </div>
-            </footer>
-          <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    </form>
+    <footer class="footer" id="div1">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-sm-4">
+                    <h5>Links</h5>
+                    <li><a href="./Index.html">Home</a></li>
+                    <li><a href="./AboutUs.html">About Us</a></li>
+                    <li><a href="./ContactUs.html">Contact Us</a></li>
+                    <li><a href="./TNC.html">Terms & Condition</a></li>
+                    <li><a href="./PrivacyPolicies.html">Privacy Policies</a></li>
+                    <li><a href="./FAQ.html">FAQ</a></li>
+                </div>
+                <div class="col-6">
+                    <h5>Our Address</h5>
+                    <address>
+                        131, Smith Avenue Road<br>
+                        #04-452,<br>
+                        Singapore 650131<br>
+                        Sinagpore<br>
+                        Phone: +6518273645<br>
+                        Fax: +65172637262<br>
+                        Email: foodculture@outlook.com
+                    </address>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <p>© Copyright 2018 Food Culture</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/tether/dist/js/tether.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="stationnames.js"></script> 
+    <script src="stationnames.js"></script>
     <script src="imgupload.js"></script>
-	</body>
+</body>
 </html>
