@@ -8,10 +8,15 @@ $id=$_POST['id'];
 $query = "DELETE FROM payment WHERE BookingID = $id";
 $result=mysqli_query($link,$query) or die(mysqli_error($link));
 
+$query2 = "DELETE FROM images WHERE BookingID = $id";
+$result2=mysqli_query($link,$query2) or die(mysqli_error($link));
+
 $query1 = "DELETE FROM booking WHERE BookingID = $id";
 $result1=mysqli_query($link,$query1) or die(mysqli_error($link));
 
-if($result && $result1) {
+
+
+if($result && $result1 && $result2) {
 	$msg="Booking has been successfully cancelled!";
 	$msg1="<p><a href='viewbooking.php'>Return to View Bookings</p>";
 }
