@@ -1,6 +1,7 @@
 <?php
-include "dbh.php";
 session_start();
+
+include "dbh.php";
 
 $query = "SELECT * FROM booking b, user u, district d, status s, station st, timeslot ts WHERE b.UserID = u.UserID AND d.DistrictID = b.DistrictID 
 AND b.StatusID = s.StatusID AND st.StationID = b.StationID AND ts.SlotID = b.SlotID AND u.StatusID != 2 AND u.StatusID != 3 ORDER BY b.BStartDate DESC";
@@ -79,16 +80,6 @@ while($row=mysqli_fetch_array($result)){
     <h2>View Bookings and Booking Requests</h2>
     <p>Bookings are listed as below:</p>
         <button class="btn btn-info" type="submit" onclick="book()">Create New Booking</button>
-   <!-- <select class="form-control col-sm-3" name="bystatus">
-       <option>Select Status</option>
-       <option value="offer">Pending Offer</option>
-       <option value="cancel">Cancelled</option>
-       <option value="confirm">Confirmed</option>
-       <option value="complete">Completed</option>
-      </div> -->
-       
-       
-<!-- </select> -->
       
     <table class="table table-hover">
       <thead>
@@ -113,9 +104,10 @@ while($row=mysqli_fetch_array($result)){
             $statusid=$arrContent[$i]['StatusID'];
             $status=$arrContent[$i]['Status'];
             $createdon=$arrContent[$i]['BStartDate'];
+            $userid=$arrContent[$i]['UserID'];
             ?>
    <tr>
-    <?php if ($statusid == "6") {?>
+    <?php if ($statusid == "6" && $_SESSION['userid'] == $userid) {?>
     <td><?php echo $bookingid ?></td>
     <td><?php echo $user ?></td>
      <td><?php echo $createdon ?></td>
@@ -161,9 +153,10 @@ while($row=mysqli_fetch_array($result)){
             $statusid=$arrContent[$i]['StatusID'];
             $status=$arrContent[$i]['Status'];
             $createdon=$arrContent[$i]['BStartDate'];
+            $userid=$arrContent[$i]['UserID'];
             ?>
    <tr>
-    <?php if ($statusid == "11" AND $statusid != "2") {?>
+    <?php if ($statusid == "11" AND $statusid != "2" && $_SESSION['userid'] == $userid) {?>
     <td><?php echo $bookingid ?></td>
     <td><?php echo $user ?></td>
      <td><?php echo $createdon ?></td>
