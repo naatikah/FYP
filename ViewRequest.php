@@ -4,7 +4,7 @@ session_start();
 
 
 $query = "SELECT * FROM booking b, user u, district d, status s, station st, timeslot ts WHERE b.UserID = u.UserID AND d.DistrictID = b.DistrictID 
-AND b.StatusID = s.StatusID AND st.StationID = b.StationID AND ts.SlotID = b.SlotID AND u.StatusID != 2 AND u.StatusID != 3 ";
+AND b.StatusID = s.StatusID AND st.StationID = b.StationID AND ts.SlotID = b.SlotID AND u.StatusID != 2 AND u.StatusID != 3 ORDER BY b.BStartDate ";
 $result=mysqli_query($link,$query)or die(mysqli_error($link));
 
 while($row=mysqli_fetch_array($result)){
