@@ -1,6 +1,10 @@
 <?php
-include "dbh.php";
 session_start();
+if($_SESSION['status']=='2' || $_SESSION['status']=='3') {
+    header("Location: Login.php");
+    die();
+}
+include "dbh.php";
 $query="SELECT * FROM station s, district d WHERE d.DistrictID = s.DistrictID";
 $result=mysqli_query($link,$query) or die(mysqli_error($link));
 $row=mysqli_fetch_array($result);
@@ -212,8 +216,8 @@ else {
                     <div class="col-md-4 mb-3">
                         <label for="StationName">Preferred MRT Station: </label>
                         <select class="form-control" id="station_list" name="Station" required>
-                            <option value="<?php echo $stationid?>"><?php echo $station ?></option>
-                                  <?php  for ($i=1;$i<count($arrContent);$i++){
+    
+                                  <?php  for ($i=0;$i<count($arrContent);$i++){
                                     $stationID=$arrContent[$i]['StationID'];
                                     $station=$arrContent[$i]['Station'];
                                     if ( $stationID !=$station) {?>
@@ -304,18 +308,34 @@ else {
 
             $('.numeric_value').each(function() {
                     total = (adultamt * male) + (childamt * child) + (adultamt * female);
+                    totala = (adultamt * male);
+                    totalc = (childamt * child);
+                     totalb = (adultamt * female);
                        });
-                $('#total').val(total);
 
+                $('#total').val(total);
+                 $('#totala').val(totala);
+                  $('#totalc').val(totalc);
+                document.getElementById("adultsm").innerHTML = "$40 * " + male + " = $" + totala;
+                document.getElementById("adultsf").innerHTML = "$40 * " + female + " = $" + totalb;
+                document.getElementById("children").innerHTML = "$30 * " + child + " = $" + totalc;
             });      
         </script>
-       
+        <h3>Estimated Costs</h3>
+              <div class="alert alert-info col-sm-6">
+            <strong>Cost of total adult males: </strong><div id="adultsm"></div><div id="totala"></div>
+            <strong>Cost of total adult females: </strong><div id="adultsf"></div><div id="totalb"></div>
+            <strong>Cost of total children: </strong><div id="children"></div><div id="totalc"></div>
+            </div>
+
             <div class="form-group">
-                <label class="control-label col-sm-3" for="NoChild">Total Price of booking (SGD$): </label>
+                <strong class="control-label col-sm-3" for="NoChild">Total Price of booking (USD$): </strong>
                 <div class="form-group col-sm-3">
                     <input type="text" name="tot_amount" class="form-control" id="total" value"" readonly><br>
                 </div>
             </div>
+           
+
 
            <!-- <div class="form-group">
                 <label class="control-label col-sm-3" for="NoChild">Calculation: </label>
@@ -364,7 +384,7 @@ else {
                         <option>Couple</option>
                         <option>Family with children</option>
                         <option>Solo Host</option>
-                        <option>Others</option>
+                        <option>Elderly</option>
                     </select>
                 </div>
             </div>
@@ -374,12 +394,12 @@ else {
                     <select class="form-control" name="Diet" id="Diet">
 
                         <option>Choose...</option>
-                        <option>Vegeterian (Will eat animal products, but not meat, poultry or fish)</option>
-                        <option>Lactose Intolerant (Dairy free)</option>
-                        <option>Lacto-Vegeterian (Will not eat eggs, meat, poultry and fish)</option>
-                        <option>Vegan (No consumption of animal products)</option>
-                        <option>Diabetic diet</option>
-                        <option>Gluten free</option>
+                        <option value="Vegeterian">Vegeterian (Will eat animal products, but not meat, poultry or fish)</option>
+                        <option value="Lactose Intolerant">Lactose Intolerant (Dairy free)</option>
+                        <option value="Lacto-Vegeterian">Lacto-Vegeterian (Will not eat eggs, meat, poultry and fish)</option>
+                        <option value="Vegan">Vegan (No consumption of animal products)</option>
+                        <option value="Diabetic">Diabetic diet</option>
+                        <option value="Gluten Free">Gluten free</option>
                     </select>
                 </div>
             </div>
