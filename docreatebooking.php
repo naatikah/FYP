@@ -1,14 +1,11 @@
 <?php
-include "dbh.php";
 session_start();
-
+include "dbh.php";
 
 $targetPath = "uploads/";
 
 $fileName = basename($_FILES["dataFile"]["name"]);
 $completePath = $targetPath . $fileName;
-
-
     $district=$_POST['District'];
     $station=$_POST['Station'];
     $bookdate=strtotime($_POST['BookDate']);
@@ -26,17 +23,18 @@ $completePath = $targetPath . $fileName;
     $pay=$_POST['tot_amount'];
     $paydate=date("Y-m-d");
     $paytime=date("H:i:s");
+    $userid=$_SESSION['userid'];
     $a=1;
 
 $query="INSERT INTO booking(BStartDate, NoFemale, NoMale, NoChild, BookDate, VisitPurpose, ParticipantInfo, HostType, Diet, Otherinfo, DistrictID, StatusID, StationID, SlotID, UserID) 
-VALUES ('$createdon', $female, $male, $child, '$bookdate', '$visitp', '$pinfo', '$hosttype', '$diet', '$oinfo', $district, 6, $station, $meal, 2)";
+VALUES ('$createdon', $female, $male, $child, '$bookdate', '$visitp', '$pinfo', '$hosttype', '$diet', '$oinfo', $district, 6, $station, $meal, '$userid')";
 
 
 $resulta=mysqli_query($link,$query) or die(mysqli_error($link));
 
 $last_id = mysqli_insert_id($link);
 
-$query1="INSERT INTO payment(UserID, BookingID, Amount, PayDate, PayTime) VALUES(2,$last_id, $pay, '$paydate', '$paytime')";
+$query1="INSERT INTO payment(UserID, BookingID, Amount, PayDate, PayTime) VALUES('$userid',$last_id, $pay, '$paydate', '$paytime')";
 
 $resultb=mysqli_query($link,$query1) or die(mysqli_error($link));
 
@@ -46,7 +44,7 @@ $query2="INSERT INTO images(BookingID, Name) VALUES($last_id, '$fileName')";
 $resultc=mysqli_query($link,$query2) or die(mysqli_error($link));
 }
 
-if ($resulta && $resultb && $resultc) {
+if ($resulta && $resultb) {
     $msg="<p>Booking has been created successfully!</p><br><p><a href='Booking.php'>Return to create booking</a></p><br><p><a href='viewbooking.php'>Return to view bookings</a></p>";
 }
 else {
@@ -113,12 +111,3 @@ mysqli_close($link);
             <?php echo $msg ?>
         </body>
 </html>
-<!-- $query1="SELECT LAST_INSERT_ID() FROM booking;
-INSERT INTO payment(UserID, BookingID, Amount, PayDate, PayTime) 
-VALUES(2,LAST_INSERT_ID,$pay, '$paydate', '$paytime');"
-
-$resultInsert1=mysqli_query($link,$query1) or die(mysqli_error($link)); -->
-
-<!--$targetPath = "uploads/";
-$fileName = basename($_FILES['file']['name']);
-$completePath = $targetPath . $fileName; -->
