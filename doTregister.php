@@ -17,7 +17,7 @@
 		$message = "User created successfully!";
 	}
 	else{
-		$message - "Failed to create user";
+		$message = "Failed to create user";
 	}
 	mysqli_close($link);
 ?>

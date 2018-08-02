@@ -60,9 +60,8 @@
     </header>
     <div class="container">
         <h1>Register with us!</h1>
-        <form class="form-horizontal">
-            <form action="doHregister.php" method="post">
-
+        </br>
+        <form class="form-horizontal" action="doHregister.php" method="post">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="name">Full Name:</label>
@@ -87,7 +86,7 @@
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="name">Confirm Password:</label>
-                    <input type="text" class="form-control" id="pw2" placeholder="" required>
+                    <input type="text" class="form-control" name="Password2" id="pw2" placeholder="" required>
                 </div>
             </div>
 

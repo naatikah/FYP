@@ -1,13 +1,13 @@
 <?php
 	session_start();
 	include "dbh.php";
-	$bookingid = $_GET['id'];
-	$userid = $_SESSION['userid']
-	$comments = $_POST['comments'];
+	$bookingid = $_POST['BookingID'];
+	$userid = $_SESSION['userid'];
+	$comments = $_POST['Comments'];
 	$message = "";
 
     // build sql insert query
-	$sql = "INSERT INTO offer(OfferID, StatusID, UserID, BookingID, DistrictID, Comments) VALUES (NULL, 4, $userid, $bookingid, 1, '$comments')";
+	$sql = "INSERT INTO offer(OfferID, StatusID, UserID, BookingID, DistrictID, Comments) VALUES (NULL, 5, $userid, $bookingid, 1, '$comments')";
 
 	$result = mysqli_query($link,$sql)or die(mysqli_error($link));
 

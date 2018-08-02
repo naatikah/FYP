@@ -5,11 +5,11 @@
 	$email = $_POST['Email'];
 	$password = $_POST['Password'];
 	$phone = $_POST['Phone'];
-	$nric = $_POST['ric'];
-	$address = $_POST['address'];
+	$nric = $_POST['NRIC'];
+	$address = $_POST['Address'];
 	$message = "";
 
-	$sql = "INSERT INTO user(UserID, CountryID, RoleID, StatusID, DistrictID, SearchID, StationID, Email, NRIC, Name, Password, Phone, Address, Description, Subscribe) VALUES (NULL , NULL, 3, 1, 1, 1, 1, '$email', '$nric', '$name', '$password', $phone, '$address', NULL, 0)";
+	$sql = "INSERT INTO user(UserID, CountryID, RoleID, StatusID, DistrictID, SearchID, StationID, Email, NRIC, Name, Password, Phone, Address, Description, Subscribe) VALUES (NULL , NULL, 2, 1, 1, 1, 1, '$email', '$nric', '$name', '$password', $phone, '$address', NULL, 0)";
 
 
 	$result = mysqli_query($link,$sql)or die(mysqli_error($link));
