@@ -24,7 +24,13 @@ if(!empty($row)){
     $bookid=$row['BookingID'];
     
 }      
-            
+$querya = "SELECT Name FROM booking b, images i WHERE i.BookingID = $theID";
+$resulta=mysqli_query($link,$querya)or die(mysqli_error($link));
+
+$rowa = mysqli_fetch_array($resulta);
+if(!empty($rowa)) {
+    $image = $rowa['Name'];
+}
 mysqli_close($link);
 ?>
 
@@ -99,7 +105,7 @@ mysqli_close($link);
     </header>
     <div class="container">
         <h2>View Booking Details</h2>
-        <form action="docancelbooking.php" id="cancelbform" onsubmit="return confirm('Are you sure you want to delete?');" method="post">
+        <form action="docancelbooking.php" id="cancelbform" method="post" onsubmit="return confirm('Are you sure you want to delete?');">
         <input type="hidden" name="id" value="<?php echo $bookid ?>">
         <div class="form-horizontal">
                 <div class="row">
@@ -164,7 +170,7 @@ mysqli_close($link);
           <div class="form-group row">
                         <label for="photo" class="col-md-2 col-form-label">Photo:</label>
                         <div class="col-md-10">    
-                        <img src=""/>
+                        <img src="uploads/<?php echo $image?>"/>
                         </div>
                     </div>
 
@@ -189,12 +195,17 @@ mysqli_close($link);
                   </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-default" type="submit" onclick="back()">Back</button>
+
                     <button class="btn btn-danger" type="submit">Cancel</button>
                 </div>
             </div>
         </div>
     </form>
+                <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                        <button class="btn btn-default" type="submit" onclick="back()">Back</button>
+                    </div>
+                </div>
     </div>
             <footer class="footer" id="div1">
         <div class="container">
