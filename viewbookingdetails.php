@@ -3,7 +3,7 @@ session_start();
 
 include "dbh.php";
 $theID=$_GET['id'];
-$query = "SELECT * FROM booking b, district d, station s, timeslot t, images i WHERE d.DistrictID = b.DistrictID AND b.StationID = s.StationID AND b.SlotID = t.SlotID AND b.BookingID=$theID"; 
+$query = "SELECT * FROM booking b, district d, station s, timeslot t WHERE d.DistrictID = b.DistrictID AND b.StationID = s.StationID AND b.SlotID = t.SlotID AND b.BookingID=$theID"; 
 
 $result=mysqli_query($link,$query)or die(mysqli_error($link));
 
@@ -48,6 +48,11 @@ mysqli_close($link);
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <title>Food Culture</title>
+        <script>
+        function view() {
+            location.href = "ViewBooking.php";
+        }
+    </script>
     <style type="text/css">
         #div1 {
             background-color: #B3B3B3;
@@ -94,7 +99,6 @@ mysqli_close($link);
     </header>
     <div class="container">
         <h2>View Booking Details</h2>
-        <form enctype="multipart/form-data" action="./viewbooking.php">
         <div class="form-horizontal">
                 <div class="row">
                 <div class="col-md-4 mb-3">
@@ -183,11 +187,10 @@ mysqli_close($link);
                   </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-default" type="submit">Back</button>
+                    <button class="btn btn-default" type="submit" onclick="view()">Back</button>
                 </div>
             </div>
         </div>
-    </form>
     </div>
             <footer class="footer" id="div1">
         <div class="container">
